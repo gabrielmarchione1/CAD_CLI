@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15042D39-4FCB-4A18-95A3-9979481E4405}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CAD_CLI</RootNamespace>
+    <AssemblyName>CAD_CLI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CadCli.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\FRM_ADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_ADM.Designer.cs">
+      <DependentUpon>FRM_ADM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_CLIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_CLIENTE.Designer.cs">
+      <DependentUpon>FRM_CAD_CLIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_EMAIL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_EMAIL.Designer.cs">
+      <DependentUpon>FRM_CAD_EMAIL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_ENDERECO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_ENDERECO.Designer.cs">
+      <DependentUpon>FRM_CAD_ENDERECO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_TELEFONE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_TELEFONE.Designer.cs">
+      <DependentUpon>FRM_CAD_TELEFONE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_USUARIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_USUARIO.Designer.cs">
+      <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_LOGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_LOGIN.Designer.cs">
+      <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_PRINCIPAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_PRINCIPAL.Designer.cs">
+      <DependentUpon>FRM_PRINCIPAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FRM_ADM.resx">
+      <DependentUpon>FRM_ADM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_CLIENTE.resx">
+      <DependentUpon>FRM_CAD_CLIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_EMAIL.resx">
+      <DependentUpon>FRM_CAD_EMAIL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_ENDERECO.resx">
+      <DependentUpon>FRM_CAD_ENDERECO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_TELEFONE.resx">
+      <DependentUpon>FRM_CAD_TELEFONE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_USUARIO.resx">
+      <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_LOGIN.resx">
+      <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_PRINCIPAL.resx">
+      <DependentUpon>FRM_PRINCIPAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CAD_CLI.ENTIDADES\CAD_CLI.ENTIDADES.csproj">
+      <Project>{8ffb0a3a-0d75-4afd-ab6a-14307c2f90dc}</Project>
+      <Name>CAD_CLI.ENTIDADES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CAD_CLI.NEGOCIOS\CAD_CLI.NEGOCIOS.csproj">
+      <Project>{4169bdd5-4995-4829-8d04-61638c7f1d8c}</Project>
+      <Name>CAD_CLI.NEGOCIOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alterar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limpar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consultar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pasta1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_cliente1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_tel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_end1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_email2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_end1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_tel1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_cliente1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_email2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\do-utilizador.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar-usuario.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CadCli.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CadCli.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
