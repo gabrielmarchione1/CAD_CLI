@@ -1,6 +1,6 @@
 # Sistema de Cadastro de Clientes - CadCli
 
-Este projeto é um **sistema de cadastro de clientes** desenvolvido em **C#** utilizando **Windows Forms** e **SQL Server** para o armazenamento de dados. O sistema segue o padrão de **programação em camadas**, separando as responsabilidades em **interface**, **negócios**, **dados** e **entidades**, facilitando a manutenção e garantindo maior segurança ao código.
+Este projeto é um **sistema de cadastro de clientes** desenvolvido em **C#** utilizando **Windows Forms** e **SQL Server** para o armazenamento de dados. O sistema segue o padrão de **programação em camadas**, separando as responsabilidades em **interface**, **negócios**, **dados** e **entidades**. A arquitetura em camadas contribui para um sistema mais seguro e de fácil manutenção, garantindo que a lógica de negócios e o acesso aos dados estejam melhor protegidos.
 
 ## Funcionalidades
 
