@@ -37,21 +37,21 @@
             this.TXT_NOME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.BTN_ADICIONAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_ALTERAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_CONSULTAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_IMP_BULKCOPY = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_GERAR_MODELO = new System.Windows.Forms.ToolStripButton();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BTN_ADICIONAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_ALTERAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_CONSULTAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
-            this.BTN_IMP_BULKCOPY = new System.Windows.Forms.ToolStripButton();
-            this.BTN_GERAR_MODELO = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -157,35 +157,98 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // BTN_ADICIONAR
+            // 
+            this.BTN_ADICIONAR.Image = global::CAD_CLI.Properties.Resources.add;
+            this.BTN_ADICIONAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_ADICIONAR.Name = "BTN_ADICIONAR";
+            this.BTN_ADICIONAR.Size = new System.Drawing.Size(78, 22);
+            this.BTN_ADICIONAR.Text = "Adicionar";
+            this.BTN_ADICIONAR.Click += new System.EventHandler(this.BTN_ADICIONAR_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_ALTERAR
+            // 
+            this.BTN_ALTERAR.Image = global::CAD_CLI.Properties.Resources.alterar;
+            this.BTN_ALTERAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_ALTERAR.Name = "BTN_ALTERAR";
+            this.BTN_ALTERAR.Size = new System.Drawing.Size(62, 22);
+            this.BTN_ALTERAR.Text = "Alterar";
+            this.BTN_ALTERAR.Click += new System.EventHandler(this.BTN_ALTERAR_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // BTN_CONSULTAR
+            // 
+            this.BTN_CONSULTAR.Image = global::CAD_CLI.Properties.Resources.consultar1;
+            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
+            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
+            this.BTN_CONSULTAR.Text = "Consultar";
+            this.BTN_CONSULTAR.Click += new System.EventHandler(this.BTN_CONSULTAR_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_DELETAR
+            // 
+            this.BTN_DELETAR.Image = global::CAD_CLI.Properties.Resources.deletar;
+            this.BTN_DELETAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_DELETAR.Name = "BTN_DELETAR";
+            this.BTN_DELETAR.Size = new System.Drawing.Size(64, 22);
+            this.BTN_DELETAR.Text = "Deletar";
+            this.BTN_DELETAR.Click += new System.EventHandler(this.BTN_DELETAR_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
+            // BTN_LIMPAR_DADOS
+            // 
+            this.BTN_LIMPAR_DADOS.Image = global::CAD_CLI.Properties.Resources.limpar;
+            this.BTN_LIMPAR_DADOS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
+            this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
+            this.BTN_LIMPAR_DADOS.Text = "Limpar";
+            this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
+            // BTN_IMP_BULKCOPY
+            // 
+            this.BTN_IMP_BULKCOPY.Image = global::CAD_CLI.Properties.Resources.pasta1;
+            this.BTN_IMP_BULKCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_IMP_BULKCOPY.Name = "BTN_IMP_BULKCOPY";
+            this.BTN_IMP_BULKCOPY.Size = new System.Drawing.Size(124, 22);
+            this.BTN_IMP_BULKCOPY.Text = "Adicionar em Lote";
+            this.BTN_IMP_BULKCOPY.Click += new System.EventHandler(this.BTN_IMP_BULKCOPY_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_GERAR_MODELO
+            // 
+            this.BTN_GERAR_MODELO.Image = global::CAD_CLI.Properties.Resources.excel;
+            this.BTN_GERAR_MODELO.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_GERAR_MODELO.Name = "BTN_GERAR_MODELO";
+            this.BTN_GERAR_MODELO.Size = new System.Drawing.Size(99, 22);
+            this.BTN_GERAR_MODELO.Text = "Gerar Modelo";
+            this.BTN_GERAR_MODELO.Click += new System.EventHandler(this.BTN_GERAR_MODELO_Click);
             // 
             // DGV_DADOS
             // 
@@ -205,73 +268,13 @@
             this.DGV_DADOS.TabIndex = 0;
             this.DGV_DADOS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellClick);
             this.DGV_DADOS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellDoubleClick);
+            this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
             this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
             // 
             // checkBoxColumn
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
-            // 
-            // BTN_ADICIONAR
-            // 
-            this.BTN_ADICIONAR.Image = global::CAD_CLI.Properties.Resources.add;
-            this.BTN_ADICIONAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_ADICIONAR.Name = "BTN_ADICIONAR";
-            this.BTN_ADICIONAR.Size = new System.Drawing.Size(78, 22);
-            this.BTN_ADICIONAR.Text = "Adicionar";
-            this.BTN_ADICIONAR.Click += new System.EventHandler(this.BTN_ADICIONAR_Click);
-            // 
-            // BTN_ALTERAR
-            // 
-            this.BTN_ALTERAR.Image = global::CAD_CLI.Properties.Resources.alterar;
-            this.BTN_ALTERAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_ALTERAR.Name = "BTN_ALTERAR";
-            this.BTN_ALTERAR.Size = new System.Drawing.Size(62, 22);
-            this.BTN_ALTERAR.Text = "Alterar";
-            this.BTN_ALTERAR.Click += new System.EventHandler(this.BTN_ALTERAR_Click);
-            // 
-            // BTN_CONSULTAR
-            // 
-            this.BTN_CONSULTAR.Image = global::CAD_CLI.Properties.Resources.consultar1;
-            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
-            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
-            this.BTN_CONSULTAR.Text = "Consultar";
-            this.BTN_CONSULTAR.Click += new System.EventHandler(this.BTN_CONSULTAR_Click);
-            // 
-            // BTN_DELETAR
-            // 
-            this.BTN_DELETAR.Image = global::CAD_CLI.Properties.Resources.deletar;
-            this.BTN_DELETAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_DELETAR.Name = "BTN_DELETAR";
-            this.BTN_DELETAR.Size = new System.Drawing.Size(64, 22);
-            this.BTN_DELETAR.Text = "Deletar";
-            this.BTN_DELETAR.Click += new System.EventHandler(this.BTN_DELETAR_Click);
-            // 
-            // BTN_LIMPAR_DADOS
-            // 
-            this.BTN_LIMPAR_DADOS.Image = global::CAD_CLI.Properties.Resources.limpar;
-            this.BTN_LIMPAR_DADOS.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
-            this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
-            this.BTN_LIMPAR_DADOS.Text = "Limpar";
-            this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
-            // 
-            // BTN_IMP_BULKCOPY
-            // 
-            this.BTN_IMP_BULKCOPY.Image = global::CAD_CLI.Properties.Resources.pasta1;
-            this.BTN_IMP_BULKCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_IMP_BULKCOPY.Name = "BTN_IMP_BULKCOPY";
-            this.BTN_IMP_BULKCOPY.Size = new System.Drawing.Size(124, 22);
-            this.BTN_IMP_BULKCOPY.Text = "Adicionar em Lote";
-            // 
-            // BTN_GERAR_MODELO
-            // 
-            this.BTN_GERAR_MODELO.Image = global::CAD_CLI.Properties.Resources.excel;
-            this.BTN_GERAR_MODELO.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_GERAR_MODELO.Name = "BTN_GERAR_MODELO";
-            this.BTN_GERAR_MODELO.Size = new System.Drawing.Size(99, 22);
-            this.BTN_GERAR_MODELO.Text = "Gerar Modelo";
             // 
             // FRM_CAD_CLIENTE
             // 

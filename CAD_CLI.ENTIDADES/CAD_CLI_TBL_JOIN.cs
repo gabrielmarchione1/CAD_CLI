@@ -32,11 +32,11 @@ namespace CAD_CLI.ENTIDADES
             /// <summary>
             /// Mapeamento LINQ
             /// </summary>
-            public int NUMERO_DDD { get; set; }
+            public string NUMERO_DDD { get; set; }
             /// <summary>
             /// Mapeamento LINQ
             /// </summary>
-            public int NUMERO_TELEFONE { get; set; }
+            public string NUMERO_TELEFONE { get; set; }
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace CAD_CLI.ENTIDADES
             /// <summary>
             /// Mapeamento LINQ
             /// </summary>
-            public int CEP { get; set; }
+            public string CEP { get; set; }
         }
     }
 }

@@ -34,18 +34,18 @@ namespace CAD_CLI.ENTIDADES
         [Column(Storage = "_NUMERO_PAIS", CanBeNull = false)]
         public int NUMERO_PAIS { get { return _NUMERO_PAIS; } set { _NUMERO_PAIS = value; } }
 
-        int _NUMERO_DDD;
+        string _NUMERO_DDD;
         /// <summary>
         /// COLUNA NUMERO_DDD
         /// </summary>
         [Column(Storage = "_NUMERO_DDD", CanBeNull = false)]
-        public int NUMERO_DDD { get { return _NUMERO_DDD; } set { _NUMERO_DDD = value; } }
+        public string NUMERO_DDD { get { return _NUMERO_DDD; } set { _NUMERO_DDD = value; } }
 
-        int _NUMERO_TELEFONE;
+        string _NUMERO_TELEFONE;
         /// <summary>
         /// COLUNA NUMERO_TELEFONE
         /// </summary>
         [Column(Storage = "_NUMERO_TELEFONE", CanBeNull = false)]
-        public int NUMERO_TELEFONE { get { return _NUMERO_TELEFONE; } set { _NUMERO_TELEFONE = value; } }
+        public string NUMERO_TELEFONE { get { return _NUMERO_TELEFONE; } set { _NUMERO_TELEFONE = value; } }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using CAD_CLI.ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,31 @@ namespace CAD_CLI.DADOS
     {
 
         #region CLIENTE
+
+        ///// <summary>
+        ///// Método para consultar clientes.
+        ///// </summary>
+        ///// <param name="Ent"></param>
+        ///// <returns></returns>
+        ///// <exception cref="Exception"></exception>
+        //public List<CAD_CLI_TBL_CLIENTE_ENT> SELECT_CAD_CLI_TBL_CLIENTE_ENT(CAD_CLI_TBL_CLIENTE_ENT Ent)
+        //{
+        //    try
+        //    {
+        //        using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+        //        {
+        //            List<CAD_CLI_TBL_CLIENTE_ENT> listaClientes = (from TBL_CLI in db.GetTable<CAD_CLI.ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT>()
+        //                                                           where (TBL_CLI.CPF_CLIENTE == Ent.CPF_CLIENTE && TBL_CLI.CPF_CONTROLE == Ent.CPF_CONTROLE)
+        //                                                           || (Ent.CPF_CLIENTE == 0 && Ent.CPF_CONTROLE == 0)
+        //                                                           select TBL_CLI).ToList();
+        //            return listaClientes;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //}
 
         /// <summary>
         /// Método para consultar clientes.
@@ -29,7 +56,7 @@ namespace CAD_CLI.DADOS
                 {
                     List<CAD_CLI_TBL_CLIENTE_ENT> listaClientes = (from TBL_CLI in db.GetTable<CAD_CLI.ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT>()
                                                                    where (TBL_CLI.CPF_CLIENTE == Ent.CPF_CLIENTE && TBL_CLI.CPF_CONTROLE == Ent.CPF_CONTROLE)
-                                                                   || (Ent.CPF_CLIENTE == 0 && Ent.CPF_CONTROLE == 0)
+                                                                   || (Ent.CPF_CLIENTE == null && Ent.CPF_CONTROLE == null)
                                                                    select TBL_CLI).ToList();
                     return listaClientes;
                 }
@@ -764,16 +791,56 @@ namespace CAD_CLI.DADOS
         /// <param name="Ent"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public List<CAD_CLI_TBL_LOGIN> SELECT_CAD_CLI_TBL_LOGIN(CAD_CLI_TBL_LOGIN Ent)
+        //public List<CAD_CLI_TBL_LOGIN> SELECT_CAD_CLI_TBL_LOGIN(CAD_CLI_TBL_LOGIN Ent)
+        //{
+        //    try
+        //    {
+        //        using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+        //        {
+        //            List<CAD_CLI_TBL_LOGIN> listaUsuarios = (from TBL_LOGIN in db.GetTable<CAD_CLI.ENTIDADES.CAD_CLI_TBL_LOGIN>()
+        //                                                     where (TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO) && (TBL_LOGIN.SENHA_USUARIO == Ent.SENHA_USUARIO)
+        //                                                     select TBL_LOGIN).ToList();
+        //            return listaUsuarios;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //}
+
+        /// <summary>
+        /// Método para consultar usuários (Login).
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CAD_CLI_TBL_LOGIN(string Usuario, string Senha)
         {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(CAD_CLI.DADOS.CAD_CLI_CONEXAO.connectionString);
+            conn.Open();
+
             try
             {
-                using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+                // Query SQL com collation case-sensitive
+                string sql = $@"
+                                DECLARE @usuario VARCHAR(25) = '{Usuario}'
+                                DECLARE @senha VARCHAR(25) = '{Senha}'
+
+                                SELECT * 
+                                FROM CAD_CLI_TBL_LOGIN
+                                WHERE NOME_USUARIO COLLATE Latin1_General_CS_AS = @usuario
+                                AND SENHA_USUARIO COLLATE Latin1_General_CS_AS = @senha;
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    List<CAD_CLI_TBL_LOGIN> listaUsuarios = (from TBL_LOGIN in db.GetTable<CAD_CLI.ENTIDADES.CAD_CLI_TBL_LOGIN>()
-                                                             where (TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO) && (TBL_LOGIN.SENHA_USUARIO == Ent.SENHA_USUARIO)
-                                                             select TBL_LOGIN).ToList();
-                    return listaUsuarios;
+                    // Executa a consulta e obtém os resultados
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Retorna true se houver resultados, false caso contrário
+                        return reader.HasRows;
+                    }
                 }
             }
             catch (Exception ex)
@@ -837,16 +904,57 @@ namespace CAD_CLI.DADOS
         /// <param name="Ent"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public List<CAD_CLI_TBL_ADM> SELECT_CAD_CLI_TBL_ADM(CAD_CLI_TBL_ADM Ent)
+        //public List<CAD_CLI_TBL_ADM> SELECT_CAD_CLI_TBL_ADM(CAD_CLI_TBL_ADM Ent)
+        //{
+        //    try
+        //    {
+        //        using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+        //        {
+        //            List<CAD_CLI_TBL_ADM> listaAdms = (from TBL_ADM in db.GetTable<CAD_CLI.ENTIDADES.CAD_CLI_TBL_ADM>()
+        //                                               where TBL_ADM.USUARIO_ADM == Ent.USUARIO_ADM && TBL_ADM.SENHA_ADM == Ent.SENHA_ADM
+        //                                               select TBL_ADM).ToList();
+        //            return listaAdms;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //}
+
+        /// <summary>
+        /// Método para consultar ADMs.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CAD_CLI_TBL_ADM(string Usuario, string Senha)
         {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(CAD_CLI.DADOS.CAD_CLI_CONEXAO.connectionString);
+            conn.Open();
+
             try
             {
-                using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+                // Query SQL com collation case-sensitive
+                string sql = $@"
+                    DECLARE @usuario VARCHAR(25) = '{Usuario}'
+                    DECLARE @senha VARCHAR(25) = '{Senha}'
+
+                    SELECT * 
+                    FROM CAD_CLI_TBL_ADM
+                    WHERE USUARIO_ADM COLLATE Latin1_General_CS_AS = @usuario
+                    AND SENHA_ADM COLLATE Latin1_General_CS_AS = @senha;
+                    ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    List<CAD_CLI_TBL_ADM> listaAdms = (from TBL_ADM in db.GetTable<CAD_CLI.ENTIDADES.CAD_CLI_TBL_ADM>()
-                                                       where TBL_ADM.USUARIO_ADM == Ent.USUARIO_ADM && TBL_ADM.SENHA_ADM == Ent.SENHA_ADM
-                                                       select TBL_ADM).ToList();
-                    return listaAdms;
+                    // Executa a consulta e obtém os resultados
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Retorna true se houver resultados, false caso contrário
+                        return reader.HasRows;
+                    }
                 }
             }
             catch (Exception ex)
@@ -857,5 +965,46 @@ namespace CAD_CLI.DADOS
 
         #endregion
 
+        /// <summary>
+        /// Função generica de bulkcopy.
+        /// </summary>
+        /// <param name="NomeTabela"></param>
+        /// <param name="DtDados"></param>
+        /// <exception cref="Exception"></exception>
+        public void INSERT_BULKCOPY(string NomeTabela, DataTable DtDados)
+        {
+            try
+            {
+                using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+                {
+                    db.INSERT_DT_BULKCOPY(NomeTabela, DtDados);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Função generica de execução de procedure sem retorno.
+        /// </summary>
+        /// <param name="NomeProcedure"></param>
+        /// <param name="prms"></param>
+        /// <exception cref="Exception"></exception>
+        public void EXECUTA_SP_SEM_RETORNO(string NomeProcedure, SqlParameter[] Prms = null)
+        {
+            try
+            {
+                using (CAD_CLI.DADOS.CAD_CLI_CONEXAO db = new CAD_CLI_CONEXAO())
+                {
+                    db.EXECUTA_SP_SEM_RETORNO(NomeProcedure, Prms);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
     }
 }

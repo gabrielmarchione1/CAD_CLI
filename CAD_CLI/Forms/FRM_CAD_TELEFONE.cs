@@ -52,8 +52,8 @@ namespace CAD_CLI.Forms
                                 ID_TELEFONE = Convert.ToInt32(item.Cells["ID_TELEFONE"].Value.ToString()),
                                 //ID_CLIENTE = Convert.ToInt32(item.Cells["ID_CLIENTE"].Value.ToString()),
                                 NUMERO_PAIS = Convert.ToInt32(item.Cells["NUMERO_PAIS"].Value.ToString()),
-                                NUMERO_DDD = Convert.ToInt32(item.Cells["NUMERO_DDD"].Value.ToString()),
-                                NUMERO_TELEFONE = Convert.ToInt32(item.Cells["NUMERO_TELEFONE"].Value.ToString()),
+                                NUMERO_DDD = item.Cells["NUMERO_DDD"].Value.ToString(),
+                                NUMERO_TELEFONE = item.Cells["NUMERO_TELEFONE"].Value.ToString(),
                             });
                         }
                     }
@@ -183,8 +183,8 @@ namespace CAD_CLI.Forms
                 }
 
                 ObjEnt.NUMERO_PAIS = 55;
-                ObjEnt.NUMERO_DDD = Convert.ToInt32(MBX_TELEFONE.Text.Substring(1, 2));
-                ObjEnt.NUMERO_TELEFONE = Convert.ToInt32(MBX_TELEFONE.Text.Replace("-", "").Replace(" ", "").Substring(4, 9));
+                ObjEnt.NUMERO_DDD = MBX_TELEFONE.Text.Substring(1, 2);
+                ObjEnt.NUMERO_TELEFONE = MBX_TELEFONE.Text.Replace("-", "").Replace(" ", "").Substring(4, 9);
                 return true;
             }
             catch (Exception ex)
@@ -407,6 +407,28 @@ namespace CAD_CLI.Forms
             finally
             {
                 Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento para formatar colunas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DGV_DADOS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                // Formata todas as células da coluna telefone
+                if (e.ColumnIndex == DGV_DADOS.Columns["NUMERO_TELEFONE"].Index && e.Value != null)
+                {
+                    string tel = e.Value.ToString().PadLeft(9, '0');
+                    e.Value = Convert.ToUInt64(tel).ToString(@"00000\-0000");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     } 

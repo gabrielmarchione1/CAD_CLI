@@ -2,6 +2,7 @@
 using CAD_CLI.ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -473,11 +474,28 @@ namespace CAD_CLI.NEGOCIOS
         /// <param name="Ent"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public List<CAD_CLI_TBL_LOGIN> SELECT_CAD_CLI_TBL_LOGIN(CAD_CLI_TBL_LOGIN Ent)
+        //public List<CAD_CLI_TBL_LOGIN> SELECT_CAD_CLI_TBL_LOGIN(CAD_CLI_TBL_LOGIN Ent)
+        //{
+        //    try
+        //    {
+        //        return ObjDAD.SELECT_CAD_CLI_TBL_LOGIN(Ent);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //}
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_CAD_CLI_TBL_LOGIN" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CAD_CLI_TBL_LOGIN(string Usuario, string Senha)
         {
             try
             {
-                return ObjDAD.SELECT_CAD_CLI_TBL_LOGIN(Ent);
+                return ObjDAD.SELECT_CAD_CLI_TBL_LOGIN(Usuario, Senha);
             }
             catch (Exception ex)
             {
@@ -530,11 +548,29 @@ namespace CAD_CLI.NEGOCIOS
         /// <param name="Ent"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public List<CAD_CLI_TBL_ADM> SELECT_CAD_CLI_TBL_ADM(CAD_CLI_TBL_ADM Ent)
+        //public List<CAD_CLI_TBL_ADM> SELECT_CAD_CLI_TBL_ADM(CAD_CLI_TBL_ADM Ent)
+        //{
+        //    try
+        //    {
+        //        return ObjDAD.SELECT_CAD_CLI_TBL_ADM(Ent);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //}
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_CAD_CLI_TBL_ADM" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CAD_CLI_TBL_ADM(string Usuario, string Senha)
         {
             try
             {
-                return ObjDAD.SELECT_CAD_CLI_TBL_ADM(Ent);
+                return ObjDAD.SELECT_CAD_CLI_TBL_ADM(Usuario, Senha);
             }
             catch (Exception ex)
             {

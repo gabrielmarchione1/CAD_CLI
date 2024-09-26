@@ -38,7 +38,7 @@ namespace CAD_CLI.Forms
             {
                 if (MONTAR_ENTIDADE())
                 {
-                    if (ObjNEG.SELECT_CAD_CLI_TBL_ADM(ObjEnt).Count > 0)
+                    if (ObjNEG.SELECT_CAD_CLI_TBL_ADM(TXT_USUARIO.Text, MBX_SENHA.Text))
                     {
                         return true;
                     }

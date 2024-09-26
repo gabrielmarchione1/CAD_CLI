@@ -1,9 +1,9 @@
+C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI.DADOS.csproj.AssemblyReference.cache
+C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI.DADOS.csproj.CoreCompileInputs.cache
 C:\Github\CAD_CLI\CAD_CLI.DADOS\bin\Debug\CAD_CLI.DADOS.dll
 C:\Github\CAD_CLI\CAD_CLI.DADOS\bin\Debug\CAD_CLI.DADOS.pdb
 C:\Github\CAD_CLI\CAD_CLI.DADOS\bin\Debug\CAD_CLI.ENTIDADES.dll
 C:\Github\CAD_CLI\CAD_CLI.DADOS\bin\Debug\CAD_CLI.ENTIDADES.pdb
-C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI.DADOS.csproj.AssemblyReference.cache
-C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI.DADOS.csproj.CoreCompileInputs.cache
 C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI..4F4A2D2F.Up2Date
 C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI.DADOS.dll
 C:\Github\CAD_CLI\CAD_CLI.DADOS\obj\Debug\CAD_CLI.DADOS.pdb

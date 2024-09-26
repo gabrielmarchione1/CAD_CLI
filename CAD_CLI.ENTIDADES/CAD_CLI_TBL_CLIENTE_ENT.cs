@@ -27,19 +27,19 @@ namespace CAD_CLI.ENTIDADES
         [Column(Storage = "_NOME_CLIENTE", CanBeNull = false)]
         public string NOME_CLIENTE { get { return _NOME_CLIENTE; } set { _NOME_CLIENTE = value; } }
 
-        int _CPF_CLIENTE;
+        string _CPF_CLIENTE;
         /// <summary>
         /// COLUNA CPF_CLIENTE
         /// </summary>
         [Column(Storage = "_CPF_CLIENTE", CanBeNull = false)]
-        public int CPF_CLIENTE { get { return _CPF_CLIENTE; } set { _CPF_CLIENTE = value; } }
+        public string CPF_CLIENTE { get { return _CPF_CLIENTE; } set { _CPF_CLIENTE = value; } }
 
-        int _CPF_CONTROLE;
+        string _CPF_CONTROLE;
         /// <summary>
         /// COLUNA CPF_CONTROLE
         /// </summary>
         [Column(Storage = "_CPF_CONTROLE", CanBeNull = false)]
-        public int CPF_CONTROLE { get { return _CPF_CONTROLE; } set { _CPF_CONTROLE = value; } }
+        public string CPF_CONTROLE { get { return _CPF_CONTROLE; } set { _CPF_CONTROLE = value; } }
 
         DateTime _DATA_NASCIMENTO;
         /// <summary>

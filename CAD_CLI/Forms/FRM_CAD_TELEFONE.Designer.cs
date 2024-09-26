@@ -35,15 +35,15 @@
             this.CBX_CLIENTE = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.BTN_ADICIONAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_CONSULTAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BTN_ADICIONAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_CONSULTAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
-            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -126,20 +126,56 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // BTN_ADICIONAR
+            // 
+            this.BTN_ADICIONAR.Image = global::CAD_CLI.Properties.Resources.add;
+            this.BTN_ADICIONAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_ADICIONAR.Name = "BTN_ADICIONAR";
+            this.BTN_ADICIONAR.Size = new System.Drawing.Size(78, 22);
+            this.BTN_ADICIONAR.Text = "Adicionar";
+            this.BTN_ADICIONAR.Click += new System.EventHandler(this.BTN_ADICIONAR_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_CONSULTAR
+            // 
+            this.BTN_CONSULTAR.Image = global::CAD_CLI.Properties.Resources.consultar1;
+            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
+            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
+            this.BTN_CONSULTAR.Text = "Consultar";
+            this.BTN_CONSULTAR.Click += new System.EventHandler(this.BTN_CONSULTAR_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
+            // BTN_DELETAR
+            // 
+            this.BTN_DELETAR.Image = global::CAD_CLI.Properties.Resources.deletar;
+            this.BTN_DELETAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_DELETAR.Name = "BTN_DELETAR";
+            this.BTN_DELETAR.Size = new System.Drawing.Size(64, 22);
+            this.BTN_DELETAR.Text = "Deletar";
+            this.BTN_DELETAR.Click += new System.EventHandler(this.BTN_DELETAR_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_LIMPAR_DADOS
+            // 
+            this.BTN_LIMPAR_DADOS.Image = global::CAD_CLI.Properties.Resources.limpar;
+            this.BTN_LIMPAR_DADOS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
+            this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
+            this.BTN_LIMPAR_DADOS.Text = "Limpar";
+            this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
             // 
             // DGV_DADOS
             // 
@@ -158,48 +194,13 @@
             this.DGV_DADOS.Size = new System.Drawing.Size(903, 351);
             this.DGV_DADOS.TabIndex = 2;
             this.DGV_DADOS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellClick);
+            this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
             this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
             // 
             // checkBoxColumn
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
-            // 
-            // BTN_ADICIONAR
-            // 
-            this.BTN_ADICIONAR.Image = global::CAD_CLI.Properties.Resources.add;
-            this.BTN_ADICIONAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_ADICIONAR.Name = "BTN_ADICIONAR";
-            this.BTN_ADICIONAR.Size = new System.Drawing.Size(78, 22);
-            this.BTN_ADICIONAR.Text = "Adicionar";
-            this.BTN_ADICIONAR.Click += new System.EventHandler(this.BTN_ADICIONAR_Click);
-            // 
-            // BTN_CONSULTAR
-            // 
-            this.BTN_CONSULTAR.Image = global::CAD_CLI.Properties.Resources.consultar1;
-            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
-            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
-            this.BTN_CONSULTAR.Text = "Consultar";
-            this.BTN_CONSULTAR.Click += new System.EventHandler(this.BTN_CONSULTAR_Click);
-            // 
-            // BTN_DELETAR
-            // 
-            this.BTN_DELETAR.Image = global::CAD_CLI.Properties.Resources.deletar;
-            this.BTN_DELETAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_DELETAR.Name = "BTN_DELETAR";
-            this.BTN_DELETAR.Size = new System.Drawing.Size(64, 22);
-            this.BTN_DELETAR.Text = "Deletar";
-            this.BTN_DELETAR.Click += new System.EventHandler(this.BTN_DELETAR_Click);
-            // 
-            // BTN_LIMPAR_DADOS
-            // 
-            this.BTN_LIMPAR_DADOS.Image = global::CAD_CLI.Properties.Resources.limpar;
-            this.BTN_LIMPAR_DADOS.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
-            this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
-            this.BTN_LIMPAR_DADOS.Text = "Limpar";
-            this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
             // 
             // FRM_CAD_TELEFONE
             // 

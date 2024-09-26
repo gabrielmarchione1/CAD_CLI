@@ -69,11 +69,11 @@ namespace CAD_CLI.ENTIDADES
         [Column(Storage = "_UF", CanBeNull = false)]
         public string UF { get { return _UF; } set { _UF = value; } }
 
-        int _CEP;
+        string _CEP;
         /// <summary>
         /// COLUNA CEP
         /// </summary>
         [Column(Storage = "_CEP", CanBeNull = false)]
-        public int CEP { get { return _CEP; } set { _CEP = value; } }
+        public string CEP { get { return _CEP; } set { _CEP = value; } }
     }
 }

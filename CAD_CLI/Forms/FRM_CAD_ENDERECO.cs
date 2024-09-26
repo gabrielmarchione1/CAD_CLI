@@ -59,7 +59,7 @@ namespace CAD_CLI.Forms
                                 BAIRRO = item.Cells["BAIRRO"].Value.ToString(),
                                 CIDADE = item.Cells["CIDADE"].Value.ToString(),
                                 UF = item.Cells["UF"].Value.ToString(),
-                                CEP = Convert.ToInt32(item.Cells["CEP"].Value.ToString()),
+                                CEP = item.Cells["CEP"].Value.ToString(),
                             });
                         }
                     }
@@ -214,7 +214,7 @@ namespace CAD_CLI.Forms
                     ObjEnt_Ant.BAIRRO = DGV_DADOS.CurrentRow.Cells["BAIRRO"].Value.ToString();
                     ObjEnt_Ant.CIDADE = DGV_DADOS.CurrentRow.Cells["CIDADE"].Value.ToString();
                     ObjEnt_Ant.UF = DGV_DADOS.CurrentRow.Cells["UF"].Value.ToString();
-                    ObjEnt_Ant.CEP = Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["CEP"].Value.ToString());
+                    ObjEnt_Ant.CEP = DGV_DADOS.CurrentRow.Cells["CEP"].Value.ToString();
 
                     CBX_CLIENTE.SelectedValue = ObjEnt_Ant.ID_CLIENTE;
                     TXT_LOGRADOURO.Text = ObjEnt_Ant.LOGRADOURO;
@@ -223,7 +223,7 @@ namespace CAD_CLI.Forms
                     TXT_BAIRRO.Text = ObjEnt_Ant.BAIRRO;
                     TXT_CIDADE.Text = ObjEnt_Ant.CIDADE;
                     MBX_UF.Text = ObjEnt_Ant.UF;
-                    MBX_CEP.Text = ObjEnt_Ant.CEP.ToString("00000000");
+                    MBX_CEP.Text = ObjEnt_Ant.CEP;
 
                     CBX_CLIENTE.Enabled = false;
                 }
@@ -296,7 +296,7 @@ namespace CAD_CLI.Forms
                 ObjEnt.BAIRRO = TXT_BAIRRO.Text;
                 ObjEnt.CIDADE = TXT_CIDADE.Text;
                 ObjEnt.UF = MBX_UF.Text;
-                ObjEnt.CEP = Convert.ToInt32(MBX_CEP.Text.Replace("-", ""));
+                ObjEnt.CEP = MBX_CEP.Text.Replace("-", "");
                 if (string.IsNullOrEmpty(TXT_COMPLEMENTO.Text))
                 {
                     ObjEnt.COMPLEMENTO = null;
@@ -581,6 +581,28 @@ namespace CAD_CLI.Forms
             try
             {
                 CONSULTAR_ENDERECO();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento para formatar colunas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DGV_DADOS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                // Formata todas as células da coluna cep
+                if (e.ColumnIndex == DGV_DADOS.Columns["CEP"].Index && e.Value != null)
+                {
+                    string cep = e.Value.ToString().PadLeft(8, '0');
+                    e.Value = Convert.ToUInt64(cep).ToString(@"00000\-000");
+                }
             }
             catch (Exception ex)
             {

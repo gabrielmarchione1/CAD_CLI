@@ -52,5 +52,9 @@
       <Name>CAD_CLI.ENTIDADES</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Procedures\CAD_CLI_SP_INSERIR_DADOS.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

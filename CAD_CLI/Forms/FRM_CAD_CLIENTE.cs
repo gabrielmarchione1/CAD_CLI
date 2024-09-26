@@ -19,6 +19,7 @@ namespace CAD_CLI.Forms
         private CAD_CLI.ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT ObjEnt = new ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT();
         private CAD_CLI.ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT ObjEnt_Ant = new ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT();
         private List<CAD_CLI.ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT> ListaEnt = new List<ENTIDADES.CAD_CLI_TBL_CLIENTE_ENT>();
+        private CAD_CLI.NEGOCIOS.FRM_CAD_CLIENTE_NEG ObjEnt_Cli = new NEGOCIOS.FRM_CAD_CLIENTE_NEG();
 
         /// <summary>
         /// Construtor da classe FRM_CAD_CLIENTE
@@ -27,6 +28,92 @@ namespace CAD_CLI.Forms
         public FRM_CAD_CLIENTE()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Método para gerar modelo.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
+        public void GERAR_MODELO()
+        {
+            try
+            {
+                string caminhoPasta;
+
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {     
+                    folderDialog.Description = "Selecione uma pasta";
+                    folderDialog.ShowNewFolderButton = true;
+                    folderDialog.ShowNewFolderButton = false;
+                 
+                    if (folderDialog.ShowDialog() == DialogResult.OK) // Exibe o diálogo de seleção de pasta
+                    {                 
+                        caminhoPasta = folderDialog.SelectedPath; // Pega o caminho da pasta selecionada
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+                if (caminhoPasta != string.Empty)
+                {
+                    ObjEnt_Cli.GERAR_MODELO(caminhoPasta);
+                    MessageBox.Show("Modelo gerado com sucesso!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma pasta!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Método para inserir em lote.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool IMPORTAR_BULKCOPY()
+        {
+            try
+            {
+                string caminhoArquivo = string.Empty;
+                using (OpenFileDialog fileDialog = new OpenFileDialog())
+                {
+                    fileDialog.Filter = "Arquivos Excel (*.xlsx)|*.xlsx";
+                    fileDialog.FilterIndex = 1;
+                    fileDialog.RestoreDirectory = true;
+
+                    if (fileDialog.ShowDialog() == DialogResult.OK) // Exibe o diálogo de seleção de arquivo
+                    {
+                        caminhoArquivo = fileDialog.FileName; // Pega o nome do arquivo selecionado
+                    }
+                    else
+                    {
+                        return false; //
+                    }
+
+                    if (caminhoArquivo != string.Empty)
+                    {
+                        ObjEnt_Cli.INSERIR_BULKCOPY(caminhoArquivo);
+                        MessageBox.Show("Dados importados com sucesso!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true; //
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione um arquivo!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false; //
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
         }
 
         /// <summary>
@@ -52,8 +139,8 @@ namespace CAD_CLI.Forms
                             {
                                 ID_CLIENTE = Convert.ToInt32(item.Cells["ID_CLIENTE"].Value.ToString()),
                                 NOME_CLIENTE = item.Cells["NOME_CLIENTE"].Value.ToString(),
-                                CPF_CLIENTE = Convert.ToInt32(item.Cells["CPF_CLIENTE"].Value.ToString()),
-                                CPF_CONTROLE = Convert.ToInt32(item.Cells["CPF_CONTROLE"].Value.ToString()),
+                                CPF_CLIENTE = item.Cells["CPF_CLIENTE"].Value.ToString(),
+                                CPF_CONTROLE = item.Cells["CPF_CONTROLE"].Value.ToString(),
                                 DATA_NASCIMENTO = Convert.ToDateTime(item.Cells["DATA_NASCIMENTO"].Value.ToString())
                             });
                         }
@@ -93,7 +180,7 @@ namespace CAD_CLI.Forms
             {
                 DGV_DADOS.Columns["ID_CLIENTE"].Visible = false;
                 DGV_DADOS.Columns["NOME_CLIENTE"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                DGV_DADOS.Columns["CPF_CLIENTE"].DefaultCellStyle.Format = "000,000,000";
+                DGV_DADOS.Columns["CPF_CLIENTE"].DefaultCellStyle.Format = @"000,000,000";
                 DGV_DADOS.AutoResizeColumns();
             }
             catch (Exception ex)
@@ -146,12 +233,12 @@ namespace CAD_CLI.Forms
 
                     ObjEnt_Ant.ID_CLIENTE = Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_CLIENTE"].Value.ToString());
                     ObjEnt_Ant.NOME_CLIENTE = DGV_DADOS.CurrentRow.Cells["NOME_CLIENTE"].Value.ToString();
-                    ObjEnt_Ant.CPF_CLIENTE = Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["CPF_CLIENTE"].Value.ToString());
-                    ObjEnt_Ant.CPF_CONTROLE = Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["CPF_CONTROLE"].Value.ToString());
+                    ObjEnt_Ant.CPF_CLIENTE = DGV_DADOS.CurrentRow.Cells["CPF_CLIENTE"].Value.ToString();
+                    ObjEnt_Ant.CPF_CONTROLE = DGV_DADOS.CurrentRow.Cells["CPF_CONTROLE"].Value.ToString();
                     ObjEnt_Ant.DATA_NASCIMENTO = Convert.ToDateTime(DGV_DADOS.CurrentRow.Cells["DATA_NASCIMENTO"].Value.ToString());
 
                     TXT_NOME.Text = ObjEnt_Ant.NOME_CLIENTE;
-                    MBX_CPF.Text = ObjEnt_Ant.CPF_CLIENTE.ToString() + ObjEnt_Ant.CPF_CONTROLE.ToString();
+                    MBX_CPF.Text = ObjEnt_Ant.CPF_CLIENTE + ObjEnt_Ant.CPF_CONTROLE;
                     MBX_DATA.Text = ObjEnt_Ant.DATA_NASCIMENTO.ToString();
 
                     MBX_CPF.Enabled = false;
@@ -267,8 +354,8 @@ namespace CAD_CLI.Forms
                 }
                 else
                 {
-                    ObjEnt.CPF_CLIENTE = Convert.ToInt32(MBX_CPF.Text.Substring(0, 11).Replace(".", ""));
-                    ObjEnt.CPF_CONTROLE = Convert.ToInt32(MBX_CPF.Text.Substring(12, 2));
+                    ObjEnt.CPF_CLIENTE = MBX_CPF.Text.Substring(0, 11).Replace(".", "");
+                    ObjEnt.CPF_CONTROLE = MBX_CPF.Text.Substring(12, 2);
                 }
 
                 if (TXT_NOME.Text.Length == 0)
@@ -477,7 +564,7 @@ namespace CAD_CLI.Forms
                 if (DELETAR_CLIENTES())
                 {
                     BTN_CONSULTAR_Click(sender, e);
-                }           
+                }
             }
             catch (Exception ex)
             {
@@ -486,6 +573,70 @@ namespace CAD_CLI.Forms
             finally
             {
                 Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_GERAR_MODELO".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_GERAR_MODELO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                GERAR_MODELO();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_IMP_BULKCOPY".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_IMP_BULKCOPY_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IMPORTAR_BULKCOPY())
+                {
+                    BTN_CONSULTAR_Click(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento para formatar colunas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DGV_DADOS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                // Formata todas as células da coluna CPF_CLIENTE
+                if (e.ColumnIndex == DGV_DADOS.Columns["CPF_CLIENTE"].Index && e.Value != null)
+                {
+                    string cpf = e.Value.ToString().PadLeft(9, '0'); 
+                    e.Value = Convert.ToUInt64(cpf).ToString(@"000\.000\.000");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
