@@ -27,3 +27,5 @@ O projeto é dividido nas seguintes camadas:
 - **Windows Forms**
 - **SQL Server**
 - **Arquitetura em camadas**
+
+**Vídeo do projeto:** https://www.linkedin.com/posts/gabriel-marchione_csharp-windowsforms-sql-activity-7245504798609854464-zj55?utm_source=share&utm_medium=member_desktop
